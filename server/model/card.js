@@ -4,7 +4,10 @@ const CardsSchema = mongoose.Schema({
     name: {
         type: String,
     },
-    author: String,
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+    },
     url: String,
     score: {
         type: Number,
@@ -18,6 +21,5 @@ const CardsSchema = mongoose.Schema({
     tags: Array
 })
 
-const Card = mongoose.model('Cards', CardsSchema)
-
+const Card = mongoose.model('Card', CardsSchema)
 module.exports = Card;
